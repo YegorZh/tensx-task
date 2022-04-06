@@ -1,1 +1,32 @@
-@use '../../App/variables';
+@use '../../App/variables' as *;
+
+.Subheader {
+    background: $color-gray-dark;
+    color: $color-gray-new;
+    height: 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    
+    &__item-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    &__item-arrow {
+        margin-bottom: 2px;
+    }
+
+    &__item-cross {
+        margin-bottom: 2px;
+    }
+
+    &__item-name-clear {
+        vertical-align: middle;
+        margin-left: 8px;
+        font-weight: 700;
+    }
+}
