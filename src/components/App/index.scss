@@ -1,7 +1,13 @@
-@use 'reset';
-@use 'variables' as *;
+@use "reset";
+@use "variables" as *;
 
 body {
     line-height: 1.4;
     font-family: $font-family;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
 }
