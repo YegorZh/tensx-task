@@ -6,10 +6,8 @@ import './index.scss';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <Header />
         <StudentsPage />
-      </header>
     </div>
   );
 }

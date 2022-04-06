@@ -1,2 +1,7 @@
 @use 'reset';
-@use 'variables';
+@use 'variables' as *;
+
+body {
+    line-height: 1.4;
+    font-family: $font-family;
+}
