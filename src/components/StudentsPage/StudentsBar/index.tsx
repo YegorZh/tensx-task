@@ -1,7 +1,11 @@
 import React from "react";
 import './index.scss';
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { setSearchValue, stampSearch } from "../../../redux/searchSlice";
 
 const StudentsBar: React.FC = () => {
+    const searchValue = useAppSelector((state) => state.search.value);
+    const dispatcher = useAppDispatch();
     return (
         <div className="StudentsBar">
             <div className="StudentsBar-title-wrapper">
@@ -10,8 +14,13 @@ const StudentsBar: React.FC = () => {
 
             <div className="StudentsBar-search">
                 <div className="StudentsBar-search-wrapper">
-                    <input type="textfield" className="StudentsBar-search-input" placeholder="Enter Student Name, Parent or ID here" />
-                    <button className="StudentsBar-search-button">
+                    <input 
+                    onChange={(event) => dispatcher(setSearchValue(event.target.value))}
+                    value={searchValue}
+                    type="textfield" 
+                    className="StudentsBar-search-input" 
+                    placeholder="Enter Student Name, Parent or ID here" />
+                    <button className="StudentsBar-search-button" onClick={() => dispatcher(stampSearch())}>
                         <svg className="StudentsBar-search-icon" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.3333 9.33333H9.80667L9.62 9.15333C10.2733 8.39333 10.6667 7.40667 10.6667 6.33333C10.6667 3.94 8.72667 2 6.33333 2C3.94 2 2 3.94 2 6.33333C2 8.72667 3.94 10.6667 6.33333 10.6667C7.40667 10.6667 8.39333 10.2733 9.15333 9.62L9.33333 9.80667V10.3333L12.6667 13.66L13.66 12.6667L10.3333 9.33333ZM6.33333 9.33333C4.67333 9.33333 3.33333 7.99333 3.33333 6.33333C3.33333 4.67333 4.67333 3.33333 6.33333 3.33333C7.99333 3.33333 9.33333 4.67333 9.33333 6.33333C9.33333 7.99333 7.99333 9.33333 6.33333 9.33333Z" fill="#C0C0C0" />
                         </svg>

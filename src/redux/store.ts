@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import sortReducer from './sortSlice';
 import pageReducer from './pageSlice';
+import searchReducer from './searchSlice';
 import studentsDataReducer from './studentsDataSlice';
 
 export const store = configureStore({
@@ -8,6 +9,7 @@ export const store = configureStore({
       sort: sortReducer,
       page: pageReducer,
       studentsData: studentsDataReducer,
+      search: searchReducer,
   },
 });
 

@@ -1,20 +1,22 @@
 import React, { useEffect } from "react";
+import axios from "axios";
 import StudentsRow from './StudentsRow'
 import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
 import './index.scss';
 import { pageNext, pagePrevious, setRowsPerPage } from "../../../redux/pageSlice";
-import axios from "axios";
 import { setStudentsData } from "../../../redux/studentsDataSlice";
 
 const StudentsTable: React.FC = () => {
     const page = useAppSelector((state) => state.page);
     const studentsData = useAppSelector((state) => state.studentsData);
     const sort = useAppSelector((state) => state.sort);
+    const search = useAppSelector((state) => state.search);
     const dispatcher = useAppDispatch();
     useEffect(() => {
         let reqParams: { [key: string]: any } = {
             page: page.currentPage,
             size: page.rowsPerPage,
+            search: search.value,
             sortDir: sort[sort.type],
         };
         if (sort.type !== 'id') {
@@ -25,7 +27,7 @@ const StudentsTable: React.FC = () => {
         }).then(res => {
             dispatcher(setStudentsData(res.data));
         })
-    }, [page.currentPage, page.rowsPerPage, sort.name, sort.score, sort.speed, sort.id]);
+    }, [page.currentPage, page.rowsPerPage, sort.name, sort.score, sort.speed, sort.id, search.stamp]);
 
     const selectOptions = Array.from(Array(20).keys()).map((n) => <option key={n + 1} value={n + 1}>{n + 1}</option>);
     const startRow = Math.min(1 + ((page.currentPage - 1) * page.rowsPerPage), studentsData.totalCount);

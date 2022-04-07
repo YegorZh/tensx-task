@@ -85,7 +85,7 @@ const StudentsRow: React.FC<{
                             </svg>
                         </div>
                     }
-                    <span className="StudentsRow__text">{row?.parents || 'Parents'}</span>
+                    <span className="StudentsRow__text">{row?.parents.map((n, i) => { if (i > 0) n = ', ' + n; return n; }) || 'Parents'}</span>
                 </div>
                 <button className={`StudentsRow__button ${!row && 'StudentsRow--hidden'}`} onClick={expandHandler}>
                     <ExpandArrow />
