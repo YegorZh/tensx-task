@@ -2,14 +2,14 @@ import React from "react";
 import './index.scss';
 import Subheader from "./Subheader";
 import StudentsBar from "./StudentsBar";
-import StudentRow from "./StudentRow";
+import StudentsTable from "./StudentsTable";
 
 const StudentsPage: React.FC = () => {
     return (
         <main className="StudentsPage">
             <Subheader />
             <StudentsBar />
-            <StudentRow />
+            <StudentsTable />
         </main>
     )
 }

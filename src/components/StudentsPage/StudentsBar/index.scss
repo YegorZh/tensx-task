@@ -51,12 +51,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-
+        
         &-button {
             display: flex;
             gap: 6px;
             align-items: center;
+            justify-content: center;
             font-size: 12px;
             text-transform: uppercase;
             color: $color-gray-new;

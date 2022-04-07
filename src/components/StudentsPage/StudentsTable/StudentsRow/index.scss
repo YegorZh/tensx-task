@@ -1,0 +1,92 @@
+@use "../../../App/variables" as *;
+
+.StudentsRow {
+    height: 48px;
+    padding: 0 20px;
+    display: flex;
+    gap: 24px;
+    border-radius: 5px 5px 0 0;
+    font-size: 14px;
+    box-shadow: 0 -1px 3px rgba($color: #F2F2F2, $alpha: 1);
+    color: $color-text-gray-main;
+
+    &--dark-bg {
+        background: $color-bg-dark;
+    }
+
+    &--header {
+        color: $color-gray-mid;
+        box-shadow: none;
+    }
+
+    &--hidden {
+        visibility: hidden;
+    }
+
+    
+    &__item {
+        display: flex;
+        flex: 1 0 auto;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    
+    &--header > &__item {
+        overflow-x: clip;
+    }
+    
+    &__selected {
+        justify-content: center;
+        overflow-x: hidden;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+    }
+
+    &__name {
+        flex: 1 1 auto;
+        width: 300px;
+        min-width: 140px;
+        overflow-x: auto;
+    }
+
+    &__id {
+        width: 96px;
+    }
+
+    &__class {
+        width: 40px;
+    }
+
+    &__score {
+        width: 100px;
+    }
+
+    &__speed {
+        width: 112px;
+    }
+
+    &__parents {
+        width: 384px;
+        min-width: 180px;
+        flex: 1 1 auto;
+        
+        &-wrapper {
+            height: 100%;
+            overflow-x: auto;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        &-icon {
+            margin-bottom: 1px;
+            cursor: pointer;
+        }
+    }
+}
