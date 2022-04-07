@@ -23,7 +23,22 @@
         visibility: hidden;
     }
 
-    
+    &--red {
+        color: $color-red;
+    }
+
+    &--yellow {
+        color: $color-yellow;
+    }
+
+    &--green {
+        color: $color-green;
+    }
+
+    &--blue {
+        color: $color-blue;
+    }
+
     &__item {
         display: flex;
         flex: 1 0 auto;

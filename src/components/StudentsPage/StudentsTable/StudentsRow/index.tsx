@@ -32,6 +32,22 @@ const StudentsRow: React.FC<{
     };
     const expandHandler = () => alert('Expanded content');
 
+    let scoreClass = '';
+    let speedClass = '';
+    if (row) {
+        if (speedClass !== 'NIL') {
+            let score = Number(row.score.replace('%', ''));;
+            if (score > 90) scoreClass = 'StudentsRow--blue';
+            else if (score > 80) scoreClass = 'StudentsRow--green';
+            else if (score > 50) scoreClass = 'StudentsRow--yellow';
+            else if (score < 50) scoreClass = 'StudentsRow--red';
+        }
+
+        if (row.speed === 'Below Expected') speedClass = 'StudentsRow--blue'
+        else if (row.speed === 'As Expected') speedClass = 'StudentsRow--green'
+        else if (row.speed === 'Above Expected') speedClass = 'StudentsRow--red'
+    }
+
     return (
         <div className={`StudentsRow ${header && 'StudentsRow--header'} ${darkBg && 'StudentsRow--dark-bg'}`}>
             <div className="StudentsRow__item StudentsRow__selected">
@@ -61,7 +77,7 @@ const StudentsRow: React.FC<{
             </div>
 
             <div className="StudentsRow__item StudentsRow__score">
-                <span className="StudentsRow__text">{row?.score || 'Av. Score, %'}</span>
+                <span className={`StudentsRow__text ${scoreClass}`}>{row?.score || 'Av. Score, %'}</span>
 
                 <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={sortScoreHandler}>
                     <SortArrow />
@@ -70,7 +86,7 @@ const StudentsRow: React.FC<{
             </div>
 
             <div className="StudentsRow__item StudentsRow__speed">
-                <span className="StudentsRow__text">{row?.speed || 'Av. Speed'}</span>
+                <span className={`StudentsRow__text ${speedClass}`}>{row?.speed || 'Av. Speed'}</span>
                 <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={sortSpeedHandler}>
                     <SortArrow />
                 </button>
