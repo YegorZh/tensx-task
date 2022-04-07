@@ -2,25 +2,19 @@ import React from "react";
 import SortArrow from '../../../reusable/SortArrow'
 import ExpandArrow from "../../../reusable/ExpandArrow";
 import './index.scss';
+import { StudentsData } from "../../../../redux/studentsDataSlice";
 
 const StudentsRow: React.FC<{
-    header?: {
-        sortNameHandler: React.MouseEventHandler<HTMLButtonElement>,
-        sortIdHandler: React.MouseEventHandler<HTMLButtonElement>,
-        sortScoreHandler: React.MouseEventHandler<HTMLButtonElement>,
-        sortSpeedHandler: React.MouseEventHandler<HTMLButtonElement>,
-    },
-    row?: {
-        name: string,
-        id: string,
-        class: string,
-        score: string,
-        speed: string,
-        parents: string,
-        expandHandler: React.MouseEventHandler<HTMLButtonElement>,
-    },
+    header?: boolean,
+    row?: StudentsData,
     darkBg?: boolean,
+    key?: number,
 }> = ({ header, row, darkBg }) => {
+    const sortNameHandler = () => alert('Sorting names');
+    const sortIdHandler = () => alert('Sorting Ids');
+    const sortScoreHandler = () => alert('Sorting scores');
+    const sortSpeedHandler = () => alert('Sorting speed');
+    const expandHandler = () => alert('Expanded content');
 
     return (
         <div className={`StudentsRow ${header && 'StudentsRow--header'} ${darkBg && 'StudentsRow--dark-bg'}`}>
@@ -30,7 +24,7 @@ const StudentsRow: React.FC<{
 
             <div className="StudentsRow__item StudentsRow__name">
                 <span className="StudentsRow__text">{row?.name || 'Name'}</span>
-                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={header?.sortNameHandler}>
+                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={sortNameHandler}>
                     <svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.95998 3.10666L8.38665 1.53333L6.81332 3.10666H9.95998ZM6.92665 11.82H8.15332L5.15998 4.17999H4.06665L1.06665 11.82H2.29332L2.90665 10.1867H6.31332L6.92665 11.82ZM3.31332 9.09333L4.60665 5.63999L5.89998 9.09333H3.31332V9.09333ZM8.38665 14.4667L9.93998 12.9133H6.83332L8.38665 14.4667ZM14.44 5.02666V4.18666H8.90665V5.25333H12.8267L8.87998 10.96V11.82H14.5667V10.76H10.4867L14.44 5.02666Z" fill="#C0C0C0" />
                     </svg>
@@ -40,7 +34,7 @@ const StudentsRow: React.FC<{
 
             <div className="StudentsRow__item StudentsRow__id">
                 <span className="StudentsRow__text">{row?.id || 'ID'}</span>
-                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={header?.sortIdHandler}>
+                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={sortIdHandler}>
                     <SortArrow />
                 </button>
 
@@ -53,7 +47,7 @@ const StudentsRow: React.FC<{
             <div className="StudentsRow__item StudentsRow__score">
                 <span className="StudentsRow__text">{row?.score || 'Av. Score, %'}</span>
 
-                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={header?.sortScoreHandler}>
+                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={sortScoreHandler}>
                     <SortArrow />
                 </button>
 
@@ -61,7 +55,7 @@ const StudentsRow: React.FC<{
 
             <div className="StudentsRow__item StudentsRow__speed">
                 <span className="StudentsRow__text">{row?.speed || 'Av. Speed'}</span>
-                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={header?.sortSpeedHandler}>
+                <button className={`StudentsRow__button ${!header && 'StudentsRow--hidden'}`} onClick={sortSpeedHandler}>
                     <SortArrow />
                 </button>
             </div>
@@ -77,7 +71,7 @@ const StudentsRow: React.FC<{
                     }
                     <span className="StudentsRow__text">{row?.parents || 'Parents'}</span>
                 </div>
-                <button className={`StudentsRow__button ${!row && 'StudentsRow--hidden'}`} onClick={row?.expandHandler}>
+                <button className={`StudentsRow__button ${!row && 'StudentsRow--hidden'}`} onClick={expandHandler}>
                     <ExpandArrow />
                 </button>
             </div>
