@@ -85,6 +85,10 @@
         }
 
         &-icon {
+            &-wrapper {
+                display: flex;
+                align-items: center;
+            }
             margin-bottom: 1px;
             cursor: pointer;
         }
