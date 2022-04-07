@@ -1,8 +1,10 @@
 import React from "react";
+import { useAppDispatch } from "../../../../redux/hooks";
 import SortArrow from '../../../reusable/SortArrow'
 import ExpandArrow from "../../../reusable/ExpandArrow";
 import './index.scss';
 import { StudentsData } from "../../../../redux/studentsDataSlice";
+import { setSortType, toggleSortId, toggleSortName, toggleSortScore, toggleSortSpeed } from "../../../../redux/sortSlice";
 
 const StudentsRow: React.FC<{
     header?: boolean,
@@ -10,10 +12,24 @@ const StudentsRow: React.FC<{
     darkBg?: boolean,
     key?: number,
 }> = ({ header, row, darkBg }) => {
-    const sortNameHandler = () => alert('Sorting names');
-    const sortIdHandler = () => alert('Sorting Ids');
-    const sortScoreHandler = () => alert('Sorting scores');
-    const sortSpeedHandler = () => alert('Sorting speed');
+    const dispatcher = useAppDispatch();
+
+    const sortNameHandler = () => {
+        dispatcher(setSortType('name'));
+        dispatcher(toggleSortName());
+    };
+    const sortIdHandler = () => {
+        dispatcher(setSortType('id'));
+        dispatcher(toggleSortId());
+    };
+    const sortScoreHandler = () => {
+        dispatcher(setSortType('score'));
+        dispatcher(toggleSortScore());
+    };
+    const sortSpeedHandler = () => {
+        dispatcher(setSortType('speed'));
+        dispatcher(toggleSortSpeed());
+    };
     const expandHandler = () => alert('Expanded content');
 
     return (

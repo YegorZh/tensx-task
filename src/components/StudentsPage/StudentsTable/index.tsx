@@ -4,18 +4,28 @@ import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
 import './index.scss';
 import { pageNext, pagePrevious, setRowsPerPage } from "../../../redux/pageSlice";
 import axios from "axios";
-import { setStudentsData, StudentsDataState } from "../../../redux/studentsDataSlice";
+import { setStudentsData } from "../../../redux/studentsDataSlice";
 
 const StudentsTable: React.FC = () => {
     const page = useAppSelector((state) => state.page);
     const studentsData = useAppSelector((state) => state.studentsData);
+    const sort = useAppSelector((state) => state.sort);
     const dispatcher = useAppDispatch();
-
     useEffect(() => {
-        axios.get('https://test-task-j.herokuapp.com/data', { params: { page: page.currentPage, size: page.rowsPerPage } }).then(res => {
+        let reqParams: { [key: string]: any } = {
+            page: page.currentPage,
+            size: page.rowsPerPage,
+            sortDir: sort[sort.type],
+        };
+        if (sort.type !== 'id') {
+            reqParams.sortBy = sort.type;
+        }
+        axios.get('https://test-task-j.herokuapp.com/data', {
+            params: reqParams
+        }).then(res => {
             dispatcher(setStudentsData(res.data));
         })
-    }, [page.currentPage, page.rowsPerPage])
+    }, [page.currentPage, page.rowsPerPage, sort.name, sort.score, sort.speed, sort.id]);
 
     const selectOptions = Array.from(Array(20).keys()).map((n) => <option key={n + 1} value={n + 1}>{n + 1}</option>);
     const startRow = Math.min(1 + ((page.currentPage - 1) * page.rowsPerPage), studentsData.totalCount);
@@ -24,7 +34,11 @@ const StudentsTable: React.FC = () => {
         <div className="StudentsTable">
             <StudentsRow header />
             <div className="StudentsTable__content">
-                {studentsData.data?.map((student, i) => <StudentsRow row={student} darkBg={i % 2 !== 0} key={i} />)}
+                {sort.id === 1 ?
+                    studentsData.data?.map((student, i) => <StudentsRow row={student} darkBg={i % 2 !== 0} key={i} />)
+                    :
+                    studentsData.data?.slice(0).reverse().map((student, i) => <StudentsRow row={student} darkBg={i % 2 !== 0} key={i} />)
+                }
             </div>
             <div className="StudentsTable__pages">
                 <span className="StudentsTable__pages-rows-wrapper">

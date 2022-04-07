@@ -1,19 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface SortState {
+    readonly [key: string]: any,
     type: string,
     name: number,
-    class: number,
+    id: number,
     score: number,
     speed: number
 }
 
 const initialState: SortState = {
-    type: 'name',
-    name: 1,
-    class: -1,
+    type: 'id',
+    name: -1,
+    id: 1,
     score: -1,
-    speed: -1
+    speed: -1,
 }
 
 const toggle = (num: number) => num === 1 ? -1 : 1;
@@ -35,14 +36,17 @@ export const sortSlice = createSlice({
         toggleSortName: (state) => {
             state.name = toggle(state.name);
         },
-        toggleSortClass: (state) => {
-            state.class = toggle(state.class);
+        toggleSortId: (state) => {
+            state.id = toggle(state.id);
         },
         toggleSortScore: (state) => {
             state.score = toggle(state.score);
         },
+        toggleSortSpeed: (state) => {
+            state.speed = toggle(state.speed);
+        },
     }
 });
 
-export const {setSortType, toggleSortName, toggleSortClass, toggleSortScore} = sortSlice.actions;
+export const {setSortType, toggleSortName, toggleSortId, toggleSortScore, toggleSortSpeed} = sortSlice.actions;
 export default sortSlice.reducer;
