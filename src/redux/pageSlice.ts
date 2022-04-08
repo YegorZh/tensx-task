@@ -25,5 +25,5 @@ const pageSlice = createSlice({
     }
 })
 
-export const { pageNext, pagePrevious, setRowsPerPage } = pageSlice.actions;
+export const { pageNext, pagePrevious, setRowsPerPage, setCurrentPage } = pageSlice.actions;
 export default pageSlice.reducer;

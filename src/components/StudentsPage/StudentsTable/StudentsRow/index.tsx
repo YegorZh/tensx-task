@@ -61,7 +61,7 @@ const StudentsRow: React.FC<{
                 ${darkBg && 'StudentsRow__row-container--dark-bg'}`
             }>
                 <div className="StudentsRow__item StudentsRow__selected">
-                    <input type="checkbox" className="StudentsRow__selected-checkbox" />
+                    <input type="checkbox" className="StudentsRow__selected-checkbox" onClick={(event => event.stopPropagation())}/>
                 </div>
 
                 <div className="StudentsRow__item StudentsRow__name">

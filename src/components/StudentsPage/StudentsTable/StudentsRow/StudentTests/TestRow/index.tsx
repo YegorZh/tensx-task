@@ -70,7 +70,7 @@ const TestRow: React.FC<{
             </div>
 
             <div className="TestRow__absent TestRow__item">
-                {data?.absent !== undefined ? <input type="checkbox" checked={data.absent} readOnly /> : (average ? '' : 'Absent')}
+                {data?.absent !== undefined ? <input type="checkbox" checked={data.absent} disabled /> : (average ? '' : 'Absent')}
             </div>
         </div>
     )
