@@ -23,16 +23,16 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba($color: $color-dark, $alpha: 0.0);
+    background: rgba($color: $color-dark, $alpha: 0);
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: rgba($color: $color-gray-new, $alpha: 0.6)
+    background: rgba($color: $color-gray-new, $alpha: 0.6);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background:rgba($color: $color-gray-mid, $alpha: 0.4)
+    background: rgba($color: $color-gray-mid, $alpha: 0.4);
 }
 
 .blue {

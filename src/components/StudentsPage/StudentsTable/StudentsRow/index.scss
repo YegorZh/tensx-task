@@ -47,6 +47,13 @@
     &__button {
         display: flex;
         align-items: center;
+        &-icon {
+            transition: 0.3s;
+
+            &--expanded {
+                transform: rotateX(180deg)
+            }
+        }
     }
 
     &__name {

@@ -114,7 +114,10 @@ const StudentsRow: React.FC<{
                         <span className="StudentsRow__text">{row?.data.parents.map((n, i) => { if (i > 0) n = ', ' + n; return n; }) || 'Parents'}</span>
                     </div>
                     <button className={`StudentsRow__button ${!row && 'StudentsRow--hidden'}`}>
-                        <ExpandArrow />
+                        <ExpandArrow
+                            className={`StudentsRow__button-icon ${row?.data.isExpanded && 'StudentsRow__button-icon--expanded'}`}
+                            fill={row?.data.isExpanded ? "#5B5B5B" : "#C0C0C0"}
+                        />
                     </button>
                 </div>
             </div>
