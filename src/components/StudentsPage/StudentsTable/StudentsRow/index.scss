@@ -1,42 +1,29 @@
 @use "../../../App/variables" as *;
 
 .StudentsRow {
-    height: 48px;
-    padding: 0 20px;
-    display: flex;
-    gap: 24px;
-    border-radius: 5px 5px 0 0;
-    font-size: 14px;
-    box-shadow: 0 -1px 3px rgba($color: #F2F2F2, $alpha: 1);
-    color: $color-text-gray-main;
+    
+    &__row-container {
+        height: 48px;
+        padding: 0 20px;
+        display: flex;
+        gap: 24px;
+        border-radius: 5px 5px 0 0;
+        font-size: 14px;
+        box-shadow: 0 -1px 3px rgba($color: #f2f2f2, $alpha: 1);
+        color: $color-text-gray-main;
 
-    &--dark-bg {
-        background: $color-bg-dark;
-    }
+        &--header {
+            color: $color-gray-mid;
+            box-shadow: none;
+        }
 
-    &--header {
-        color: $color-gray-mid;
-        box-shadow: none;
+        &--dark-bg {
+            background: $color-bg-dark;
+        }
     }
 
     &--hidden {
         visibility: hidden;
-    }
-
-    &--red {
-        color: $color-red;
-    }
-
-    &--yellow {
-        color: $color-yellow;
-    }
-
-    &--green {
-        color: $color-green;
-    }
-
-    &--blue {
-        color: $color-blue;
     }
 
     &__item {
@@ -48,11 +35,10 @@
         white-space: nowrap;
     }
 
-    
     &--header > &__item {
         overflow-x: clip;
     }
-    
+
     &__selected {
         justify-content: center;
         overflow-x: hidden;
@@ -90,7 +76,7 @@
         width: 384px;
         min-width: 180px;
         flex: 1 1 auto;
-        
+
         &-wrapper {
             height: 100%;
             overflow-x: auto;

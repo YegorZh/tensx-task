@@ -1,0 +1,133 @@
+@use "../../../../App/variables" as *;
+
+.StudentTests {
+    display: none;
+    flex-direction: column;
+    background: $color-bg;
+
+    &--active {
+        gap: 12px;
+        display: flex;
+        padding: 20px 60px;
+    }
+
+    &--accent {
+        font-weight: 700;
+        color: $color-gray-dark;
+    }
+
+    &__headers {
+        text-transform: uppercase;
+        font-size: 14px;
+        display: flex;
+        color: $color-gray-mid;
+        gap: 16px;
+
+        &-item {
+            display: flex;
+            gap: 8px;
+        }
+    }
+
+    &__settings {
+        display: flex;
+        gap: 16px;
+
+        &-icon {
+            margin-bottom: 2px;
+        }
+
+        &-button {
+            white-space: nowrap;
+            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $color-white;
+            outline: 1px solid $color-gray-new;
+            text-transform: uppercase;
+        }
+
+        &-date {
+            width: 200px;
+            border: none;
+            background: none;
+            border-bottom: 1px solid $color-gray-new;
+            color: $color-gray-new;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &-refresh {
+            display: flex;
+            align-items: center;
+            margin-left: 150px;
+            // border: 1px solid black;
+        }
+    }
+
+
+
+    &__separator-top {
+        height: 1px;
+        max-width: 1100px;
+        width: 100%;
+        background: $color-accent;
+    }
+
+    &__legend {
+        font-size: 14px;
+        display: grid;  
+        grid-template-columns: 45px 140px 168px 158px 180px;
+        text-transform: uppercase;
+        color: $color-gray-mid;
+        gap: 16px;
+    }
+
+    &__circle {
+        margin-right: 8px;
+        display: inline-block;
+        border-radius: 50%;
+        height: 12px;
+        width: 12px;
+    }
+
+    .blue > &__circle {
+        background-color: $color-blue;
+    }
+
+    .green > &__circle {
+        background-color: $color-green;
+    }
+
+    .yellow > &__circle {
+        background-color: $color-yellow;
+    }
+
+    .red > &__circle {
+        background-color: $color-red;
+    }
+
+    &__table {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        &-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        &-separator {
+            max-width: 1080px;
+            height: 2px;
+            background-color: $color-accent;
+            margin-bottom: 6px;
+        }
+
+    }
+}

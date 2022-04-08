@@ -10,6 +10,7 @@ button {
     cursor: pointer;
     background: none;
     border: none;
+    font: inherit;
 }
 
 .App {
@@ -18,18 +19,38 @@ button {
 
 ::-webkit-scrollbar {
     width: 5px;
-    height: 2px;
+    height: 3px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba($color: $color-dark, $alpha: 0.1);
+    background: rgba($color: $color-dark, $alpha: 0.0);
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: rgba($color: $color-gray-new, $alpha: 0.4)
+    background: rgba($color: $color-gray-new, $alpha: 0.6)
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background:rgba($color: $color-gray-mid, $alpha: 0.4)
+}
+
+.blue {
+    color: $color-blue;
+}
+
+.green {
+    color: $color-green;
+}
+
+.yellow {
+    color: $color-yellow;
+}
+
+.red {
+    color: $color-red;
+}
+
+.gray-new {
+    color: $color-gray-new;
 }

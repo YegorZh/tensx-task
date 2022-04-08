@@ -18,6 +18,7 @@ export interface StudentsData {
     parents: string[],
     score: string,
     speed: string,
+    isExpanded: boolean,
     tests: TestData[],
 }
 
@@ -35,11 +36,17 @@ const studentsDataSlice = createSlice(
         initialState,
         reducers: {
             setStudentsData: (state, action: PayloadAction<StudentsDataState>) => state = action.payload,
-            resetStudentsData: (state) => { state = initialState }
+            resetStudentsData: (state) => { state = initialState },
+            toggleRowExpand: (state, action: PayloadAction<number>) => {
+                if (state.data) {
+                    const flip = state.data[action.payload].isExpanded ? false : true;
+                    state.data[action.payload].isExpanded = flip;
+                }
+            },
         }
     }
 );
 
-export const { setStudentsData, resetStudentsData } = studentsDataSlice.actions
+export const { setStudentsData, resetStudentsData, toggleRowExpand } = studentsDataSlice.actions
 
 export default studentsDataSlice.reducer

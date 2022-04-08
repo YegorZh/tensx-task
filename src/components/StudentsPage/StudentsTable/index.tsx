@@ -36,11 +36,7 @@ const StudentsTable: React.FC = () => {
         <div className="StudentsTable">
             <StudentsRow header />
             <div className="StudentsTable__content">
-                {sort.id === 1 ?
-                    studentsData.data?.map((student, i) => <StudentsRow row={student} darkBg={i % 2 !== 0} key={i} />)
-                    :
-                    studentsData.data?.slice(0).reverse().map((student, i) => <StudentsRow row={student} darkBg={i % 2 !== 0} key={i} />)
-                }
+                {studentsData.data?.map((student, i) => <StudentsRow row={{ data: student, index: i }} darkBg={i % 2 !== 0} key={i} />)}
             </div>
             <div className="StudentsTable__pages">
                 <span className="StudentsTable__pages-rows-wrapper">

@@ -1,0 +1,88 @@
+@use "../../../../../App/variables" as *;
+
+.TestRow {
+    display: flex;
+    width: 100%;
+    min-height: 32px;
+    font-size: 14px;
+    color: $color-gray-mid;
+    align-items: center;
+    max-width: 1080px;
+    gap: 12px;
+    
+    &--content {
+        font-size: 16px;
+    }
+
+    &--average {
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    &--nil {
+        outline: 1px solid $color-accent;
+        border-radius: 1px;
+        background: $color-bg-red;
+    }
+    
+    &__id {
+        overflow: hidden;
+        flex: 1 0 22px;
+    }
+
+    &--content > &__id {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+    
+    &__test-label {
+        flex: 1 1 300px;
+        min-width: 100px;
+    }
+    
+    &--content > &__test-label {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+
+    &__score {
+        flex: 1 0 48px;
+    }
+
+    &__speed {
+        flex: 1 0 90px;
+    }   
+
+    &--content > &-speed {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+
+    &__total-questions {
+        flex: 1 0 78px;
+    }
+
+    &__expected-speed {
+        flex: 1 0 120px;
+    }
+
+    &__concept {
+        flex: 1 1 152px;
+        min-width: 100px;
+    }
+
+    &--content > &-concept {
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+
+    &__date {
+        flex: 1 0 100px;
+    }
+
+    &__absent {
+        flex: 1 0 48px;
+        display: flex;
+        justify-content: center;
+    }
+}
