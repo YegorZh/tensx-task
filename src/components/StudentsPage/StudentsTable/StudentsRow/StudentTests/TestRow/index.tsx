@@ -24,7 +24,7 @@ const TestRow: React.FC<{
     if (data?.speed) {
         const numSpeed = Number(data.speed.replace('h ', '').replace('m ', '').replace('s', ''));
         const numExpSpeed = Number(data.expSpeed.replace('h ', '').replace('m ', '').replace('s', ''));
-        const relation = numExpSpeed / numSpeed;
+        const relation = numSpeed / numExpSpeed;
         if (relation > 1) speedClass = 'red';
         if (relation === 1) speedClass = 'yellow';
         if (relation < 1) speedClass = 'blue';
