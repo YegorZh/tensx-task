@@ -1,5 +1,6 @@
 {
   "name": "tenx-test-task",
+  "homepage": "https://yegorzh.github.io/tensx-task/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
