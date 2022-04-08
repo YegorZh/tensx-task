@@ -27,7 +27,11 @@ const Header: React.FC = () => {
                 }
             </nav>
             <div className="Header__profile">
-                <div className="Header__profile-image">U</div>
+                <img
+                className="Header__profile-image" 
+                src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" 
+                alt="User portrait." />
+                {/* <div className="Header__profile-image">U</div> */}
                 <ExpandArrow className="Header__profile-arrow" />
             </div>
         </header>

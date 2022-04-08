@@ -65,6 +65,7 @@
         &-image {
             height: 32px;
             width: 32px;
+            object-fit: cover;
             background-color: $color-gray-mid;
             border-radius: 50%;
             color: $color-white;
